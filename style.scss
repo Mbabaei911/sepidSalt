@@ -1,0 +1,588 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+ 
+}
+:not(i){
+ font-family: yekan;
+}
+
+html {
+  font-size: 48.5%;
+  overflow-x: hidden;
+    direction: rtl;
+}
+body {
+  line-height: 1.7;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sina;
+  font-weight: 900;
+}
+// ::-moz-selection {
+//   // color: white;
+//   // background: #66ccff;
+// }
+// ::selection {
+//   // color: white;
+//   // background: #66ccff;
+// }
+@font-face {
+  font-family: sina;
+  src: url("./font/B\ Sina\ Bold_0.ttf") format("truetype");
+}
+@font-face {
+  font-family: yekan;
+  src: url("./font/BYekan+.ttf") format("truetype");
+}
+
+$color-primary: #ee0d0e;
+$color_secondary: #e7eefa;
+$color_footer: #323232;
+
+.color {
+  color: $color-primary;
+}
+
+////header logo and link
+.header__container {
+  // display: inline;
+  background-color: transparent;
+  height: 5rem;
+
+  &__link {
+    float: right;
+    // padding-top: 0.7rem;
+
+    a:link {
+      font-size: 2rem;
+      margin-right: 3rem;
+
+      text-decoration: none;
+
+      color: white;
+      position: relative;
+      text-decoration: none;
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      border-radius: 4px;
+      background-color: $color-primary;
+      bottom: 0px;
+      left: 0;
+
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    a:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+
+    a:last-child {
+      margin-right: 5rem;
+    }
+  }
+
+  img {
+    height: 5rem;
+    width: 7rem;
+    
+  }
+}
+
+
+.progress-container {
+	position: fixed;
+	right: 0px;
+	width:.5rem;
+	height: 100%;
+	background: transparent !important;
+	border-radius: 2px;
+	margin: auto;
+  z-index: 200;
+}
+
+.progress-bar {
+	width: 8px;
+	background: transparent !important;
+	border-radius: 2px;
+  background-color: $color-primary !important;
+}
+
+.progress-bar:before {
+	height: 1%;
+}
+
+.glow {
+	-webkit-box-shadow: 0px 0px 14px 21px rgba(238,13,14, 0.48);
+	-moz-box-shadow: 0px 0px 14px 21px rgba(238,13,14, 0.48);
+	box-shadow: 0px 0px 14px 21px rgba(238,13,14, 0.48);
+}
+
+@media screen and (max-width: 650px) {
+  .dateAndClock{
+    display: none;
+  }
+}
+
+///section 1
+.section__1 {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("./img/bg-sec1.jpg");
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  // direction: rtl;
+  background-position: bottom; 
+
+  &__nav {
+    position: fixed;
+    top: .8rem ;
+    width: 100%;
+    transition: top 0.3s;
+    background-color: $color_footer ;
+    z-index: 100;
+    
+    
+   
+    &__link {
+      float: left;
+      display: block;
+      color:white;
+      text-align: center;
+      text-decoration: none;
+    }
+    &__link:hover{
+      color:$color-primary
+    }
+  }
+  
+
+  &__container {
+    // padding-right: 32rem;
+    padding-top: 27rem;
+
+    &__line {
+      height: 1rem;
+      background-color: $color-primary;
+      width: 12rem;
+      margin-bottom: 0.7rem;
+    }
+    
+
+    h1 {
+      font-size: 6.5rem;
+     
+    }
+
+    button {
+      padding: 1.5rem 2rem;
+      border: 2px solid black;
+      position: relative;
+      overflow: hidden;
+      background-color: transparent;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 2rem;
+      transition: 0.2s;
+      z-index: 1;
+      font-family: inherit;
+      color: white;
+      background-color: $color-primary;
+      margin-top: 3rem;
+      border-radius: 1rem !important;
+    }
+
+    button::before {
+      content: "";
+      width: 0;
+      height: 300%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background: black;
+      transition: 0.5s ease;
+      display: block;
+      z-index: -1;
+    }
+
+    button:hover::before {
+      width: 105%;
+    }
+
+    button:hover {
+      color: white;
+    }
+  }
+  &__cardCont {
+    width: 23rem;
+    height: 20rem;
+    &__fawCont {
+      background-color: $color-primary;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+  &__cardCont:hover {
+    transform: translateY(-0.4rem);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+@media screen and (max-width: 650px) {
+  .section__1__container h1 {
+    font-size:5rem ;
+  }
+}
+///////section 2
+.section__2 {
+  background-color: $color-primary;
+  color: white;
+  padding-bottom: 4rem;
+  &__button {
+    padding: 1.5rem 2rem;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    transition: 0.2s;
+    z-index: 1;
+    font-family: inherit;
+    // color: white;
+    background-color: $color-primary;
+    margin-top: 3rem;
+    border-radius: 1rem !important;
+
+  }
+  &__button:before {
+    content: "";
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: black;
+    transition: 0.5s ease;
+    display: block;
+    z-index: -1;
+    // color: white !important;
+  }
+  &__button:hover::before {
+    width: 120%;
+  }
+
+  &__button:hover {
+    color: white;
+  }
+}
+
+////section 3
+.section__3 {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("./img/sea-salt-wooden-bowl-black-background-.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  //  background-attachment: fixed;
+
+  &__container {
+    padding-bottom: 10rem !important;
+  }
+
+  &__box {
+    background-color: white;
+    &__Cont {
+      padding-left: 3rem !important;
+      padding-top: 6rem;
+      h1{
+        font-size: 4rem;
+        font-weight: 500;
+      }
+      h2{
+        line-height: 2.7rem;
+      }
+    }
+  }
+
+  &__circle1 {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    background-color: $color-primary;
+    padding: 2rem 2rem;
+
+    margin-top: 3rem;
+  }
+  &__circle1:hover {
+    background: black;
+    transition: 0.5s ease-out;
+  }
+
+  &__circle2 {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    background-color: $color-primary;
+    transform: translateX(7rem) translateY(-6rem);
+  }
+  &__circle2:hover {
+    background: black;
+    transition: 0.5s ease-out;
+  }
+  &__button {
+    padding: 1.5rem 2rem;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    transition: 0.2s;
+    z-index: 1;
+    font-family: inherit;
+    color: white;
+    background-color: $color-primary;
+    margin-top: 3rem;
+    border-radius: 1rem !important;
+  }
+  &__button:before {
+    content: "";
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: black;
+    transition: 0.5s ease;
+    display: block;
+    z-index: -1;
+  }
+  &__button:hover::before {
+    width: 105%;
+  }
+
+  &__button:hover {
+    color: white;
+  }
+}
+
+///section 4
+.section__4 {
+  background-color: $color-primary;
+
+  // padding-bottom: 5rem;
+  padding: 4rem 0rem;
+  &__col {
+    border-color: white !important;
+    background-color: transparent !important;
+    color: white;
+    padding-left: 3rem;
+
+    h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      padding-bottom: 2rem;
+    }
+    h2 {
+      font-size: 5rem;
+      font-weight: 300;
+      padding-bottom: 3rem;
+    }
+    h3 {
+      font-size: 2rem;
+      font-weight: 300;
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+///section 5
+.section__5 {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("./img/salt-wooden-spoon-place-floor\ \(2\).jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__img {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  &__button {
+    display: block;
+    padding: 1rem;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    transition: 0.2s;
+    z-index: 1;
+    font-family: inherit;
+    color: white;
+    background-color: $color-primary;
+    margin-top: 3rem;
+    display: block;
+    border-radius: 1rem !important;
+  }
+  &__button:before {
+    content: "";
+    width: 0%;
+    height: 1000%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: black;
+    transition: 0.8s ease;
+    display: block;
+    z-index: -1;
+  }
+  &__button:hover::before {
+    width: 100%;
+  }
+
+  &__button:hover {
+    color: white;
+  }
+}
+
+///section 6
+.section__6 {
+  // position: relative;
+  background-color: $color_secondary;
+  padding-bottom: 8rem;
+ 
+
+  &__header {
+    padding: 5rem;
+    font-size: 4rem;
+  }
+  &__allcontainer {
+    position: relative;
+  }
+  &__container {
+    z-index: 9;
+    background-color: white;
+    position: relative;
+  }
+  &__bgline {
+    width: 2000px;
+    height: 20rem;
+    background-color: $color-primary;
+    position: absolute;
+    transform: translateY(10rem) translateX(40rem);
+  }
+
+  &__img {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+  }
+}
+
+///section7
+.section__7 {
+  padding: 3rem 0rem;
+  background-color: white;
+  &__eachrow {
+    background-color: $color_secondary;
+  }
+  &__eachrowredline {
+    width: 3.5rem !important;
+    background-color: $color-primary;
+  }
+
+  &__rowcontent {
+    background-color: $color_secondary;
+  }
+
+  &__header {
+    font-size: 4.8rem;
+    font-weight: 350;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+  }
+
+  &__col {
+    padding-left: 0 !important;
+  }
+}
+
+///section 8
+.section__8 {
+  padding-bottom: 6rem;
+  padding-top: 3rem;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url("./img/college-business-f.jpg");
+  &__content {
+    height: 25rem;
+    border-color: $color-primary;
+  }
+  &__cardsContainer {
+    background-color: $color-primary;
+  }
+  &__img {
+    width: 90rem;
+    position: relative;
+    opacity: 1;
+  }
+
+  &__content {
+    background-color: $color-primary;
+    h2 {
+      font-size: 2rem;
+      font-weight: 300;
+    }
+    h1 {
+      font-size: 4rem;
+      font-weight: 400;
+    }
+  }
+}
+
+//section 9
+.section__9 {
+  background-color: $color-primary;
+  padding: 6rem 0rem;
+  direction: rtl;
+  &__contact{
+    font-size: 4rem;
+  }
+ 
+}
+
+//section 10
+.section__10 {
+  background-color: $color_footer;
+  padding: 2rem;
+}
